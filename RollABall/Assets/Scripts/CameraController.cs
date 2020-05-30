@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
     {
         var spinRight = Input.GetKey(KeyCode.Keypad6); // right
         var spinLeft = Input.GetKey(KeyCode.Keypad4); // left
-        var spin = spinRight ? -1 : spinLeft ? 1 : 0;
+        var spin = spinRight ? 1 : spinLeft ? -1 : 0;
 
         orbitAngles += new Vector2(0, Time.deltaTime * spinMultiplier * spin);  // Accumulate the orbiting in a stored value
         return orbitAngles;

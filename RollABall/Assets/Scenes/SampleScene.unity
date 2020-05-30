@@ -1230,7 +1230,6 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
-  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1316,25 +1315,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1061131420}
---- !u!1183024399 &963194230
-LookAtConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
-  m_Weight: 1
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationOffset: {x: 0, y: 0, z: 0}
-  m_Roll: 0
-  m_WorldUpObject: {fileID: 0}
-  m_UseUpObject: 0
-  m_IsContraintActive: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 1061131424}
-    weight: 1
 --- !u!1 &1037021833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,7 +1488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbda3142bf684bd40bb6c8972e822d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForceMultiplier: 10
+  ForceMultiplier: 15
   ScoreText: {fileID: 238229206}
   WinText: {fileID: 242041203}
   Area: {fileID: 484427324}

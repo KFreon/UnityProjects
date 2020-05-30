@@ -38,7 +38,16 @@ public class PlayerController : MonoBehaviour
         var moveHorizontal = Input.GetAxis("Horizontal");
         var moveVertical = Input.GetAxis("Vertical");
 
-        var movement = new Vector3(moveHorizontal, 0, moveVertical);
+        Vector3 movement = default;
+        if (moveHorizontal != 0)
+        {
+            movement = Camera.main.transform.right * moveHorizontal;
+        }
+
+        if (moveVertical != 0)
+        {
+            movement = Camera.main.transform.forward * moveVertical;
+        }
 
         PlayerObject.AddForce(movement * ForceMultiplier);
     }
