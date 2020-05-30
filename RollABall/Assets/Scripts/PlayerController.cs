@@ -1,21 +1,29 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    const string PickupTag = "pickup";
+
     public float ForceMultiplier;
     public Text ScoreText;
     public Text WinText;
+    public GameObject Area;
 
     private Rigidbody PlayerObject;
 
     private int score = 0;
+    private int maxScore = 0;
 
     private void Start()
     {
         PlayerObject = GetComponent<Rigidbody>();
-        SetScoreText(score);
+        var pickups = GameObject.FindGameObjectsWithTag(PickupTag);
+
         WinText.text = "";
+        maxScore = pickups.Count();
+        SetScoreText(score);
     }
 
     // Before frame
@@ -38,7 +46,7 @@ public class PlayerController : MonoBehaviour
     // Detecs collision between THIS object and "other"
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("pickup"))
+        if (other.gameObject.CompareTag(PickupTag))
         {
             other.gameObject.SetActive(false);
             SetScoreText(++score);
@@ -47,9 +55,9 @@ public class PlayerController : MonoBehaviour
 
     private void SetScoreText(int score)
     {
-        ScoreText.text = $"Score: {score}";
+        ScoreText.text = $"Score: {score} / {maxScore}";
 
-        if (score > 5)
+        if (score >= maxScore)
         {
             WinText.text = "Winnaaaaa!!";
         }
