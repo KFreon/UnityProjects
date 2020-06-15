@@ -8,13 +8,13 @@ env:
 
 jobs:
   build:
-    name: Build
+    name: Build for ${{ matrix.targetPlatform }} on version ${{ matrix.unityVersion }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         unityVersion:
-          - 2019.4.0f1
+          - 2019.3.8f1
           targetPlatform:
             - WebGL
 
@@ -22,10 +22,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      - name: Login to Azure
-        uses: Azure/Login@v1
-        with: 
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      # - name: Login to Azure
+      #   uses: Azure/Login@v1
+      #   with: 
+      #     creds: ${{ secrets.AZURE_CREDENTIALS }}
       
       - uses: actions/cache@1.1.0
         with: 
@@ -45,9 +45,16 @@ jobs:
       #  with:
       #    name: Build
       #    path: build
-      - name: Publish app
-        uses: Azure/cli@v1.0.0
+      # - name: Publish app
+      #   uses: Azure/cli@v1.0.0
+      #   with:
+      #     azcliversion: latest
+      #     inlineScript: |
+      #         az storage blob upload-batch -s build/WebGL/WebGL -d \$web --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }}
+
+
+      - uses: bacongobbler/azure-blob-storage-upload@v1.1.1
         with:
-          azcliversion: latest
-          inlineScript: |
-              az storage blob upload-batch -s build/WebGL/WebGL -d \$web --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }}
+          source_dir: build/WebGL/WebGL
+          container_name: www
+          connection_string: ${{ secrets.StorageConnectionString }}
