@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,11 +19,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    readonly Pickup[] Pickups =
-    {
-        new Pickup(SweetPickupTag, -0.1f),
-        new Pickup(SavouryPickupTag, 0.1f)
-    };
+    private Pickup[] Pickups;
 
     const string SweetPickupTag = "SweetPickup";
     const string SavouryPickupTag = "SavouryPickup";
@@ -31,7 +28,9 @@ public class PlayerController : MonoBehaviour
     public float JumpPower;
     public Text ScoreText;
     public Text WinText;
-    public GameObject Area;
+    public float SizeAdjustment;
+
+    public List<GameObject> ActivePickups = new List<GameObject>();
 
     private Rigidbody PlayerObject;
 
@@ -40,6 +39,12 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        Pickups = new[]
+        {
+            new Pickup(SweetPickupTag, -1f * SizeAdjustment),
+            new Pickup(SavouryPickupTag, SizeAdjustment)
+        };
+
         PlayerObject = GetComponent<Rigidbody>();
         foreach(var pickup in Pickups)
         {
@@ -53,7 +58,20 @@ public class PlayerController : MonoBehaviour
     // Before frame
     private void Update()
     {
-        
+        // Handle particles
+        foreach (var pickup in ActivePickups)
+        {
+            var particles = pickup.GetComponent<ParticleSystem>();
+            if (particles == null)
+            {
+                return;
+            }
+
+            if (!particles.isEmitting && pickup.activeSelf)
+            {
+                pickup.SetActive(false);
+            }
+        }
     }
 
     // Before physics calcs
@@ -82,14 +100,14 @@ public class PlayerController : MonoBehaviour
         PlayerObject.AddForce(movement * ForceMultiplier);
     }
 
-    // Detecs collision between THIS object and "other"
+    // Detects collision between THIS object and "other"
     private void OnTriggerEnter(Collider other)
     {
         foreach(var pickup in Pickups)
         {
             if (other.gameObject.CompareTag(pickup.Name))
             {
-                other.gameObject.SetActive(false);
+                //ActivePickups.Add(other.gameObject);
                 SetScoreText(++score);
                 PlayerObject.transform.localScale *= (1 + pickup.SizeAdjustment);
             }

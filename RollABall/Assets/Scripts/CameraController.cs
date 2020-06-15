@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
     public GameObject Player;
     private Vector3 offset;
 
-    private float spinMultiplier = 90;
+    public float spinMultiplier = 90;
 
     private Vector2 orbitAngles = new Vector2(25, 0);  // 25deg up from flat, 0deg rotation
 

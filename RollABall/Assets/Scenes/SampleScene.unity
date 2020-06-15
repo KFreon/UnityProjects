@@ -137,7 +137,7 @@ PrefabInstance:
     - target: {fileID: 173430086326421393, guid: d73ab7d100380c04e9cbbc4d3b3f190e,
         type: 3}
       propertyPath: m_Name
-      value: Burger (3)
+      value: Burger
       objectReference: {fileID: 0}
     - target: {fileID: 3761486892643448194, guid: d73ab7d100380c04e9cbbc4d3b3f190e,
         type: 3}
@@ -639,7 +639,7 @@ PrefabInstance:
     - target: {fileID: 2033688241797273374, guid: 8d9177833580d19458d468a7730baac8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2033688241797273374, guid: 8d9177833580d19458d468a7730baac8,
         type: 3}
@@ -959,17 +959,17 @@ PrefabInstance:
     - target: {fileID: 2033688241797273374, guid: 8d9177833580d19458d468a7730baac8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.127448
+      value: -7.37
       objectReference: {fileID: 0}
     - target: {fileID: 2033688241797273374, guid: 8d9177833580d19458d468a7730baac8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.023799948
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 2033688241797273374, guid: 8d9177833580d19458d468a7730baac8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.3810973
+      value: -4.88
       objectReference: {fileID: 0}
     - target: {fileID: 2033688241797273374, guid: 8d9177833580d19458d468a7730baac8,
         type: 3}
@@ -1678,22 +1678,22 @@ PrefabInstance:
     - target: {fileID: 173430086326421393, guid: d73ab7d100380c04e9cbbc4d3b3f190e,
         type: 3}
       propertyPath: m_Name
-      value: Burger (2)
+      value: Burger
       objectReference: {fileID: 0}
     - target: {fileID: 3761486892643448194, guid: d73ab7d100380c04e9cbbc4d3b3f190e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.1210217
+      value: -8.13
       objectReference: {fileID: 0}
     - target: {fileID: 3761486892643448194, guid: d73ab7d100380c04e9cbbc4d3b3f190e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.12
+      value: 0.57
       objectReference: {fileID: 0}
     - target: {fileID: 3761486892643448194, guid: d73ab7d100380c04e9cbbc4d3b3f190e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.1457
+      value: 2.83
       objectReference: {fileID: 0}
     - target: {fileID: 3761486892643448194, guid: d73ab7d100380c04e9cbbc4d3b3f190e,
         type: 3}
@@ -1755,6 +1755,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1840,6 +1841,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1061131420}
+  spinMultiplier: 150
+--- !u!45 &963194230
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: e40e8150516bcce4da74b989e29489a0, type: 2}
 --- !u!1001 &988520282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2082,7 +2093,7 @@ GameObject:
   - component: {fileID: 1061131425}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2177,7 +2188,8 @@ MonoBehaviour:
   JumpPower: 30
   ScoreText: {fileID: 238229206}
   WinText: {fileID: 242041203}
-  Area: {fileID: 0}
+  SizeAdjustment: 0.2
+  ActivePickups: []
 --- !u!54 &1061131426
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2552,7 +2564,7 @@ PrefabInstance:
     - target: {fileID: 2033688241797273374, guid: 8d9177833580d19458d468a7730baac8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2033688241797273374, guid: 8d9177833580d19458d468a7730baac8,
         type: 3}
@@ -3529,7 +3541,7 @@ PrefabInstance:
     - target: {fileID: 2033688241797273374, guid: 8d9177833580d19458d468a7730baac8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2033688241797273374, guid: 8d9177833580d19458d468a7730baac8,
         type: 3}

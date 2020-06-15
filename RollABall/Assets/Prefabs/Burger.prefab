@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -1472191918543499505}
   - component: {fileID: -5095589926776455335}
   - component: {fileID: -1371602615349757044}
+  - component: {fileID: -1904596127497914}
   m_Layer: 0
   m_Name: Burger
   m_TagString: SavouryPickup
@@ -80,6 +81,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpinSpeed: 0
+--- !u!114 &-1904596127497914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173430086326421393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6c4798b7679e34caf679aefd306b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Particles: {fileID: 2413758828484990892, guid: 78665274329d0434d8efc0d904e8fd0f,
+    type: 3}
 --- !u!1 &2056029016919568221
 GameObject:
   m_ObjectHideFlags: 0
