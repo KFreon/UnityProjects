@@ -13,10 +13,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        unityVersion:
-          - 2019.3.8f1
-          targetPlatform:
-            - WebGL
+        - unityVersion: "2019.3.8f1"
+        - targetPlatform: "WebGL"
 
     steps:
       - name: Checkout
