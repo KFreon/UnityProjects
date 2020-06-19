@@ -8,7 +8,7 @@ env:
 
 jobs:
   build:
-    name: Build for ${{ matrix.targetPlatform }} on version ${{ matrix.unityVersion }}
+    name: Build
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -22,7 +22,7 @@ jobs:
       #   with: 
       #     creds: ${{ secrets.AZURE_CREDENTIALS }}
       
-      - uses: actions/cache@1.1.0
+      - uses: actions/cache@v1.1.0
         with: 
           path: Library
           key: Library
