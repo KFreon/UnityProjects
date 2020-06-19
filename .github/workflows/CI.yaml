@@ -12,9 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        - unityVersion: "2019.3.8f1"
-        - targetPlatform: "WebGL"
 
     steps:
       - name: Checkout
@@ -34,8 +31,8 @@ jobs:
       - name: Build project
         uses: webbertakken/unity-builder@v0.10
         with:
-            unityVersion: ${{ matrix.unityVersion }}
-            targetPlatform: ${{ matrix.targetPlatform }}
+            unityVersion: 2019.3.8f1
+            targetPlatform: WebGL
 
 
       # Output 
